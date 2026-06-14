@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arrow Page</title>
+  <style>
+    :root, html[data-theme="light"] { --bg:#f5f0e6; --surface:#fbf6ee; --surface2:#fffaf4; --border:#d8cbbb; --text:#3d2a24; --muted:#7c625c; --inverse:#fff8f3; --primary:#7b1b38; --primaryHover:#64152e; --radius:1rem; --shadow:0 10px 30px rgba(0,0,0,.09); --fontBody:Inter, system-ui, sans-serif; --fontDisplay:Georgia, serif; }
+    *{box-sizing:border-box} body{margin:0;min-height:100vh;font-family:var(--fontBody);color:var(--text);background:linear-gradient(180deg,var(--bg),var(--surface));display:grid;place-items:center;padding:24px}
+    .wrap{display:flex;align-items:center;gap:18px}
+    .panel{width:min(520px,100%);background:color-mix(in srgb,var(--surface2) 88%, transparent);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px}
+    h1{margin:0 0 10px;font-family:var(--fontDisplay);font-size:2.1rem;line-height:1.05}
+    p{margin:0;color:var(--muted);line-height:1.6}
+    .arrow-link{margin-top:24px;display:inline-flex;align-items:center;justify-content:center;width:74px;height:74px;border-radius:999px;border:1px solid var(--border);background:var(--surface);color:var(--primary);text-decoration:none;box-shadow:var(--shadow);transition:transform .2s ease, background-color .2s ease, color .2s ease}
+    .arrow-link:hover{transform:translateX(4px);background:var(--primary);color:var(--inverse)}
+    .arrow{font-size:2rem;line-height:1}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main class="panel">
+      <h1>Welcome</h1>
+      <p>This page uses the same soft color scheme and leads forward with an arrow.</p>
+    </main>
+    <a class="arrow-link" href="new-page.html" aria-label="Go to the next page"><span class="arrow">→</span></a>
+  </div>
+</body>
+</html>
