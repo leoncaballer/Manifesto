@@ -7,147 +7,329 @@
   <link rel="preconnect" href="https://api.fontshare.com" />
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@500,700&display=swap" rel="stylesheet" />
   <style>
-    :root, [data-theme="light"] {
+    :root,
+    html[data-theme="light"] {
       --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
       --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
       --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
       --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
       --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
       --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
-      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem;
-      --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem;
-      --color-bg: #f5f0e6; --color-surface: #fbf6ee; --color-surface-2: #fffaf4; --color-border: #d8cbbb;
-      --color-divider: #e2d7ca; --color-text: #3d2a24; --color-text-muted: #7c625c; --color-text-inverse: #fff8f3;
-      --color-primary: #7b1b38; --color-primary-hover: #64152e; --color-primary-highlight: #ead7dd;
-      --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.75rem; --radius-xl: 1rem; --radius-full: 9999px;
-      --shadow-sm: 0 1px 2px rgba(0,0,0,.06); --shadow-md: 0 10px 30px rgba(0,0,0,.09);
+
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+
+      --color-bg: #f5f0e6;
+      --color-surface: #fbf6ee;
+      --color-surface-2: #fffaf4;
+      --color-border: #d8cbbb;
+      --color-divider: #e2d7ca;
+      --color-text: #3d2a24;
+      --color-text-muted: #7c625c;
+      --color-text-inverse: #fff8f3;
+      --color-primary: #7b1b38;
+      --color-primary-hover: #64152e;
+      --color-primary-highlight: #ead7dd;
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-xl: 1rem;
+      --radius-full: 9999px;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.09);
       --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
       --font-body: 'Satoshi', Inter, sans-serif;
       --font-display: 'Boska', Georgia, serif;
     }
-    [data-theme="dark"] {
-      --color-bg: #211817; --color-surface: #2a1f1e; --color-surface-2: #312523; --color-border: #584542;
-      --color-divider: #413331; --color-text: #efe4d7; --color-text-muted: #c7b6ab; --color-text-inverse: #1f1514;
-      --color-primary: #c07a8f; --color-primary-hover: #d08ea1; --color-primary-highlight: #4a3038;
-      --shadow-sm: 0 1px 2px rgba(0,0,0,.2); --shadow-md: 0 10px 30px rgba(0,0,0,.35);
+
+    html[data-theme="dark"] {
+      --color-bg: #211817;
+      --color-surface: #2a1f1e;
+      --color-surface-2: #312523;
+      --color-border: #584542;
+      --color-divider: #413331;
+      --color-text: #efe4d7;
+      --color-text-muted: #c7b6ab;
+      --color-text-inverse: #1f1514;
+      --color-primary: #c07a8f;
+      --color-primary-hover: #d08ea1;
+      --color-primary-highlight: #4a3038;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.35);
     }
-    *, *::before, *::after { box-sizing: border-box; }
-    html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
     body {
-      margin: 0; min-height: 100dvh; font-family: var(--font-body); font-size: var(--text-base); line-height: 1.6;
-      color: var(--color-text); background:
-      radial-gradient(circle at top left, color-mix(in srgb, var(--color-primary) 10%, transparent), transparent 35%),
-      linear-gradient(180deg, var(--color-bg), var(--color-surface));
+      margin: 0;
+      min-height: 100dvh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      color: var(--color-text);
+      background:
+        radial-gradient(circle at top left, color-mix(in srgb, var(--color-primary) 10%, transparent), transparent 35%),
+        linear-gradient(180deg, var(--color-bg), var(--color-surface));
     }
-    a, button, input { font: inherit; }
-    button { cursor: pointer; }
-    img, svg { display: block; max-width: 100%; }
+
+    a,
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
     .sr-only {
-      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
-      clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
+
     .skip-link {
-      position: absolute; left: var(--space-4); top: -3rem; background: var(--color-primary); color: var(--color-text-inverse);
-      padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); z-index: 100;
+      position: absolute;
+      left: var(--space-4);
+      top: -3rem;
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-md);
+      z-index: 100;
     }
-    .skip-link:focus { top: var(--space-4); }
-    .shell { width: min(100% - 2rem, 1100px); margin: 0 auto; }
+
+    .skip-link:focus {
+      top: var(--space-4);
+    }
+
+    .shell {
+      width: min(calc(100% - 2rem), 720px);
+      margin: 0 auto;
+    }
+
     header {
-      display: flex; justify-content: space-between; align-items: center; gap: var(--space-4);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-4);
       padding: var(--space-4) 0;
     }
-    .brand { display: inline-flex; align-items: center; gap: var(--space-3); text-decoration: none; color: inherit; }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-3);
+      text-decoration: none;
+      color: inherit;
+    }
+
     .brand-mark {
-      width: 2.4rem; height: 2.4rem; border-radius: 0.8rem; display: grid; place-items: center;
-      background: var(--color-primary); color: var(--color-text-inverse); box-shadow: var(--shadow-sm);
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 0.8rem;
+      display: grid;
+      place-items: center;
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      box-shadow: var(--shadow-sm);
     }
-    .brand-name { font-weight: 700; letter-spacing: 0.02em; }
+
+    .brand-name {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
     .theme-toggle {
-      min-width: 44px; min-height: 44px; display: inline-grid; place-items: center; border: 1px solid var(--color-border);
-      background: var(--color-surface-2); color: var(--color-text); border-radius: var(--radius-full);
+      min-width: 44px;
+      min-height: 44px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-sm);
     }
+
     main {
-      min-height: calc(100dvh - 88px); display: grid; place-items: center; padding: var(--space-8) 0 var(--space-12);
+      min-height: calc(100dvh - 88px);
+      display: grid;
+      place-items: center;
+      padding: var(--space-8) 0 var(--space-12);
     }
+
     .grid {
-      width: 100%; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: var(--space-8); align-items: stretch;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      place-items: center;
     }
+
     .panel {
-      background: color-mix(in srgb, var(--color-surface-2) 88%, transparent); border: 1px solid var(--color-border);
-      border-radius: var(--radius-xl); box-shadow: var(--shadow-md); backdrop-filter: blur(8px);
+      width: 100%;
+      background: color-mix(in srgb, var(--color-surface-2) 88%, transparent);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(8px);
     }
-    .hero {
-      padding: clamp(1.5rem, 4vw, 3rem); display: grid; gap: var(--space-6); align-content: space-between;
-    }
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: var(--space-2); width: fit-content; padding: var(--space-2) var(--space-3);
-      border-radius: var(--radius-full); background: var(--color-primary-highlight); color: var(--color-primary);
-      font-size: var(--text-sm); font-weight: 700;
-    }
-    h1, h2 { margin: 0; line-height: 1.1; }
-    h1 { font-family: var(--font-display); font-size: var(--text-2xl); max-width: 11ch; }
-    p { margin: 0; color: var(--color-text-muted); max-width: 58ch; }
-    .feature-list { display: grid; gap: var(--space-4); }
-    .feature {
-      display: grid; grid-template-columns: auto 1fr; gap: var(--space-3); align-items: start; padding-top: var(--space-3);
-      border-top: 1px solid var(--color-divider);
-    }
-    .feature-dot {
-      width: 0.8rem; height: 0.8rem; border-radius: var(--radius-full); margin-top: 0.45rem; background: var(--color-primary);
-    }
+
     .gate {
-      padding: clamp(1.25rem, 3vw, 2rem); display: grid; gap: var(--space-5); align-self: center;
+      padding: clamp(1.25rem, 3vw, 2rem);
+      display: grid;
+      gap: var(--space-5);
+      align-self: center;
+      max-width: 520px;
     }
-    .gate-card { display: grid; gap: var(--space-5); }
-    .gate-card h2 { font-size: var(--text-xl); }
-    .field { display: grid; gap: var(--space-2); }
-    label { font-size: var(--text-sm); font-weight: 700; }
+
+    .gate-card {
+      display: grid;
+      gap: var(--space-5);
+    }
+
+    .gate-card h2 {
+      font-size: var(--text-xl);
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    .field {
+      display: grid;
+      gap: var(--space-2);
+    }
+
+    label {
+      font-size: var(--text-sm);
+      font-weight: 700;
+    }
+
     input[type="password"] {
-      width: 100%; min-height: 48px; padding: 0 var(--space-4); border-radius: var(--radius-lg);
-      border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-text);
+      width: 100%;
+      min-height: 48px;
+      padding: 0 var(--space-4);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text);
     }
-    input[type="password"]:focus-visible, .btn:focus-visible, .theme-toggle:focus-visible {
-      outline: 2px solid var(--color-primary); outline-offset: 2px;
+
+    input[type="password"]:focus-visible,
+    .btn:focus-visible,
+    .theme-toggle:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
     }
+
     .btn {
-      min-height: 48px; padding: 0 var(--space-5); border-radius: var(--radius-lg); border: 1px solid transparent;
+      min-height: 48px;
+      padding: 0 var(--space-5);
+      border-radius: var(--radius-lg);
+      border: 1px solid transparent;
       transition: transform var(--transition), background var(--transition), border-color var(--transition), color var(--transition);
     }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary { background: var(--color-primary); color: var(--color-text-inverse); }
-    .btn-primary:hover { background: var(--color-primary-hover); }
-    .btn-secondary { background: transparent; color: var(--color-text); border-color: var(--color-border); }
-    .helper { font-size: var(--text-sm); color: var(--color-text-muted); }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-hover);
+    }
+
+    .helper {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+
     .feedback {
-      min-height: 1.5em; font-size: var(--text-sm); color: #b42318;
+      min-height: 1.5em;
+      font-size: var(--text-sm);
+      color: #b42318;
     }
+
     .protected {
-      display: none; gap: var(--space-5); padding-top: var(--space-2);
+      display: none;
+      gap: var(--space-5);
+      padding-top: var(--space-2);
     }
-    .protected.active { display: grid; }
-    .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
-    .stat {
-      padding: var(--space-4); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg);
+
+    .protected.active {
+      display: grid;
     }
-    .stat strong { display: block; font-size: var(--text-lg); }
-    .actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+
+    .actions {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+
     .code-chip {
-      display: inline-flex; align-items: center; padding: var(--space-2) var(--space-3); border-radius: var(--radius-full);
-      background: var(--color-primary-highlight); color: var(--color-primary); font-size: var(--text-sm); font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-full);
+      background: var(--color-primary-highlight);
+      color: var(--color-primary);
+      font-size: var(--text-sm);
+      font-weight: 700;
       width: fit-content;
     }
+
     @media (max-width: 860px) {
-      .grid { grid-template-columns: 1fr; }
-      h1 { max-width: 14ch; }
-      .stat-grid { grid-template-columns: 1fr; }
+      .shell {
+        width: min(calc(100% - 1.5rem), 720px);
+      }
     }
+
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
     }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
+
   <div class="shell">
     <header>
       <a class="brand" href="#" aria-label="Bordeaux Gate home">
@@ -160,149 +342,104 @@
         </span>
         <span class="brand-name">MTVReginald</span>
       </a>
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-      </button>
+
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme"></button>
     </header>
 
     <main id="main-content">
       <section class="grid" aria-label="Password protected website demo">
-        <article class="panel hero">
-          <div>
-            <h1>A simple website with a clean password page.</h1>
-          </div>
-          <p>
-            This demo uses one HTML file and a small bit of JavaScript to reveal protected content after the correct password is entered.
-            It is ideal for mockups, previews, or lightweight gated pages.
-          </p>
-          <div class="feature-list" role="list" aria-label="Highlights">
-            <div class="feature" role="listitem">
-              <span class="feature-dot" aria-hidden="true"></span>
-              <div><strong>Single-file setup.</strong><br><span class="helper">Easy to deploy on static hosting.</span></div>
-            </div>
-            <div class="feature" role="listitem">
-              <span class="feature-dot" aria-hidden="true"></span>
-              <div><strong>Accessible form.</strong><br><span class="helper">Includes labels, focus states, and a skip link.</span></div>
-            </div>
-            <div class="feature" role="listitem">
-              <span class="feature-dot" aria-hidden="true"></span>
-              <div><strong>Easy to edit.</strong><br><span class="helper">Change the password and protected text in a few lines.</span></div>
-            </div>
-          </div>
-        </article>
-
-        <section class="panel gate" aria-labelledby="gate-title">
+        <article class="panel gate" aria-labelledby="gate-title">
           <div class="gate-card" id="login-view">
-            <div>
-              <h2 id="gate-title">Enter password</h2>
-            </div>
-            <p>Use the password field below to unlock the protected section.</p>
+            <h2 id="gate-title">Enter password</h2>
+            <p>Enter the password to gain access to my manifesto.</p>
+
             <form id="password-form" novalidate>
               <div class="field">
                 <label for="password">Password</label>
                 <input id="password" name="password" type="password" autocomplete="current-password" required />
               </div>
+
               <div class="actions" style="margin-top: var(--space-5);">
                 <button class="btn btn-primary" type="submit">Unlock</button>
               </div>
+
               <p class="feedback" id="feedback" aria-live="polite"></p>
             </form>
           </div>
 
           <div class="protected" id="protected-view" aria-live="polite">
-            <div>
-              <div class="code-chip">Access granted</div>
-              <h2>Protected content</h2>
-            </div>
-            <p>
-              You can replace this section with your own private text, download links, embedded media, or navigation to the rest of your website.
-            </p>
-            <div class="stat-grid">
-              <article class="stat">
-                <span class="helper">Status</span>
-                <strong>Unlocked</strong>
-              </article>
-              <article class="stat">
-                <span class="helper">Page type</span>
-                <strong>Static HTML</strong>
-              </article>
-              <article class="stat">
-                <span class="helper">Edit time</span>
-                <strong>~2 minutes</strong>
-              </article>
-            </div>
+            <div class="code-chip">Access granted</div>
+            <h2>Protected content</h2>
+            <p>You can replace this section with your own private text, download links, embedded media, or navigation to the rest of your website.</p>
+
             <div class="actions">
               <button class="btn btn-primary" type="button" id="lock-again">Lock again</button>
             </div>
           </div>
-        </section>
+        </article>
       </section>
     </main>
   </div>
 
   <script>
-    (() => {
-      const root = document.documentElement;
-      const toggle = document.querySelector('[data-theme-toggle]');
-      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const root = document.documentElement;
+    const toggle = document.querySelector('[data-theme-toggle]');
+    let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+    root.setAttribute('data-theme', theme);
+
+    const setIcon = () => {
+      toggle.innerHTML = theme === 'dark'
+        ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>'
+        : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+    };
+
+    setIcon();
+
+    toggle.addEventListener('click', () => {
+      theme = theme === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', theme);
-      const setIcon = () => {
-        toggle.innerHTML = theme === 'dark'
-          ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>'
-          : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
-      };
       setIcon();
-      toggle.addEventListener('click', () => {
-        theme = theme === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', theme);
-        setIcon();
-      });
+    });
 
-      const DEMO_PASSWORD = 'opensesame';
-      const form = document.getElementById('password-form');
-      const input = document.getElementById('password');
-      const feedback = document.getElementById('feedback');
-      const loginView = document.getElementById('login-view');
-      const protectedView = document.getElementById('protected-view');
-      const fillDemo = document.getElementById('fill-demo');
-      const lockAgain = document.getElementById('lock-again');
+    const DEMO_PASSWORD = 'opensesame';
+    const form = document.getElementById('password-form');
+    const input = document.getElementById('password');
+    const feedback = document.getElementById('feedback');
+    const loginView = document.getElementById('login-view');
+    const protectedView = document.getElementById('protected-view');
+    const lockAgain = document.getElementById('lock-again');
 
-      const showProtected = () => {
-        loginView.style.display = 'none';
-        protectedView.classList.add('active');
-        feedback.textContent = '';
-      };
+    const showProtected = () => {
+      loginView.style.display = 'none';
+      protectedView.classList.add('active');
+      feedback.textContent = '';
+    };
 
-      const showLogin = () => {
-        protectedView.classList.remove('active');
-        loginView.style.display = 'grid';
-        input.value = '';
-        input.focus();
-      };
+    const showLogin = () => {
+      protectedView.classList.remove('active');
+      loginView.style.display = 'grid';
+      input.value = '';
+      input.focus();
+    };
 
-      form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const value = input.value.trim();
-        if (!value) {
-          feedback.textContent = 'Please enter a password.';
-          return;
-        }
-        if (value === DEMO_PASSWORD) {
-          showProtected();
-        } else {
-          feedback.textContent = 'Incorrect password.';
-        }
-      });
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const value = input.value.trim();
 
-      fillDemo.addEventListener('click', () => {
-        input.value = DEMO_PASSWORD;
-        input.focus();
-      });
+      if (!value) {
+        feedback.textContent = 'Please enter a password.';
+        return;
+      }
 
-      lockAgain.addEventListener('click', showLogin);
-    })();
+      if (value === DEMO_PASSWORD) {
+        showProtected();
+      } else {
+        feedback.textContent = 'Incorrect password.';
+      }
+    });
+
+    lockAgain.addEventListener('click', showLogin);
   </script>
 </body>
 </html>
