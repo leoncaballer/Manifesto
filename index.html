@@ -197,7 +197,6 @@
         <section class="panel gate" aria-labelledby="gate-title">
           <div class="gate-card" id="login-view">
             <div>
-              <div class="code-chip">Demo password: opensesame</div>
               <h2 id="gate-title">Enter password</h2>
             </div>
             <p>Use the password field below to unlock the protected section.</p>
@@ -295,7 +294,7 @@
         if (value === DEMO_PASSWORD) {
           showProtected();
         } else {
-          feedback.textContent = 'Incorrect password. Try opensesame for the demo.';
+          feedback.textContent = 'Incorrect password.';
         }
       });
 
