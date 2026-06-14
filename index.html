@@ -14,29 +14,36 @@
     h2{margin:0 0 8px;font-size:2rem;font-family:var(--fontDisplay)} p{margin:0;color:var(--muted);line-height:1.6}
     .field{display:grid;gap:8px;margin-top:22px} label{font-size:.9rem;font-weight:700} input{width:100%;min-height:48px;padding:0 16px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--text)}
     .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}.btn{min-height:48px;padding:0 20px;border-radius:12px;border:1px solid transparent}.btn-primary{background:var(--primary);color:var(--inverse)}
-    .feedback{min-height:1.5em;margin-top:10px;font-size:.9rem;color:#b42318}.hidden-link{display:none;margin-top:18px;font-weight:700;color:var(--primary)}.hidden-link.visible{display:inline-block}
+    .feedback{min-height:1.5em;margin-top:10px;font-size:.9rem;color:#b42318}
+    .proceed-wrap{display:none;min-height:220px;align-items:center;justify-content:center}.proceed-wrap.visible{display:grid}
+    .proceed-link{display:inline-flex;align-items:center;justify-content:center;min-width:220px;min-height:62px;padding:0 28px;border:1px solid var(--border);border-radius:14px;background:var(--surface);color:var(--text);text-decoration:none;font-weight:700;letter-spacing:.04em;box-shadow:var(--shadow)}
+    .login-view.hidden{display:none}
   </style>
 </head>
 <body>
   <section class="panel">
-    <h2>Enter password</h2>
-    <p>Enter the password to gain access to my manifesto.</p>
-    <div class="field"><label for="password">Password</label><input id="password" type="password" placeholder="Type password" /></div>
-    <div class="actions"><button class="btn btn-primary" id="unlockBtn" type="button">Unlock</button></div>
-    <div class="feedback" id="feedback">Preview mode: link appears after unlock.</div>
-    <a class="hidden-link" id="nextLink" href="new-page.html">Go to the new page</a>
+    <div id="loginView" class="login-view">
+      <h2>Enter password</h2>
+      <p>Enter the password to gain access to my manifesto.</p>
+      <div class="field"><label for="password">Password</label><input id="password" type="password" placeholder="Type password" /></div>
+      <div class="actions"><button class="btn btn-primary" id="unlockBtn" type="button">Unlock</button></div>
+      <div class="feedback" id="feedback">Preview mode: the proceed box appears after unlock.</div>
+    </div>
+    <div id="proceedWrap" class="proceed-wrap" aria-live="polite">
+      <a class="proceed-link" href="new-page.html">PROCEED</a>
+    </div>
   </section>
   <script>
     const DEMO_PASSWORD = 'opensesame';
     const input = document.getElementById('password');
     const feedback = document.getElementById('feedback');
-    const nextLink = document.getElementById('nextLink');
+    const proceedWrap = document.getElementById('proceedWrap');
+    const loginView = document.getElementById('loginView');
     document.getElementById('unlockBtn').addEventListener('click', () => {
       if (input.value.trim() === DEMO_PASSWORD) {
-        nextLink.classList.add('visible');
-        feedback.textContent = 'Unlocked.';
+        loginView.classList.add('hidden');
+        proceedWrap.classList.add('visible');
       } else {
-        nextLink.classList.remove('visible');
         feedback.textContent = 'Incorrect password.';
       }
     });
